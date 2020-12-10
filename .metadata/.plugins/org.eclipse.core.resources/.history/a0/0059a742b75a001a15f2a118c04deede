@@ -1,0 +1,7 @@
+package mysql.database.com.authentication.register;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface RegisterRepository extends CrudRepository<RegisterModel,String> {
+
+}

@@ -1,0 +1,43 @@
+package mysql.database.com.register;
+
+import java.util.ArrayList;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class RegisterService {
+
+	@Autowired
+	private RegisterRepository registerRepo;
+	
+	
+	public void newRegisteration(RegisterModel obj){
+		registerRepo.save(obj);
+	}
+	
+	public void updateRegisteration(RegisterModel obj,String id){
+		registerRepo.save(obj);
+	}
+	
+	public List<RegisterModel> show_allRegisteration(){
+		List<RegisterModel> reg = new ArrayList<>();
+		registerRepo.findAll().forEach(reg::add);
+		return reg;
+	}
+	
+	public Optional<RegisterModel> show_oneRegisteration(String id){
+		return registerRepo.findById(id);
+	}
+	
+	public void deleteRegisteration(String id){
+		registerRepo.deleteById(id);
+	}
+	
+	public void qrCodeGenerator(RegisterModel obj){
+		
+	}
+}
